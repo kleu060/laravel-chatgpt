@@ -21,3 +21,4 @@ Route::get('/', function () {
 Route::get('/referenceletter',[App\Http\Controllers\ReferenceLetterController::class, 'index'])->name("ReferenceLetter");
 
 Route::get('/chat', [App\Http\Controllers\ChatGPTController::class, 'askToChatGpt'])->name("chat");
+Route::post('/generate', [App\Http\Controllers\ChatGPTController::class, 'generate'])->name("generate");
