@@ -6,7 +6,7 @@
 <div class="container">
     <div class="container my-5">
         <div>
-            <h1 class="d-inline-block">Reference Letter</h1>
+            <h1 class="d-inline-block">Cover Letter</h1>
             <button class="btn d-inline-block" type="button" onclick="generatePDF()">Generate PDF</button>
         </div>
         <textarea class="form-control" id="txtarea" style="height:500px;"></textarea>
