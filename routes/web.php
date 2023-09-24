@@ -18,7 +18,8 @@ Route::get('/', function () {
 });
 
 
-Route::get('/referenceletter',[App\Http\Controllers\ReferenceLetterController::class, 'index'])->name("ReferenceLetter");
+Route::get('/referenceletter',[App\Http\Controllers\ReferenceLetterController::class, 'index'])->middleware('checkChatGPT')->name("ReferenceLetter");
+Route::post('/createPDF',[App\Http\Controllers\ReferenceLetterController::class, 'createPDF'])->middleware('checkChatGPT')->name("createPDF");
+Route::post('/generate', [App\Http\Controllers\ChatGPTController::class, 'generate'])->middleware('checkChatGPT')->name("generate");
 
 Route::get('/chat', [App\Http\Controllers\ChatGPTController::class, 'askToChatGpt'])->name("chat");
-Route::post('/generate', [App\Http\Controllers\ChatGPTController::class, 'generate'])->name("generate");

@@ -11,4 +11,4 @@
     </div>
 </body>
 </html>
-@yield('after_script');
+@yield('after_script')
