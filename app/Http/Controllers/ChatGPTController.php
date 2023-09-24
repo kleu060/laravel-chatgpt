@@ -20,7 +20,11 @@ class ChatGPTController extends Controller
         
     }
 
-    public function checkConfig(){
+    /**
+     * check if CHATGPT_API_KEY is dedfine in .env
+     */
+    public function checkConfig()
+    {
         if (!defined( env('CHATGPT_API_KEY') ) && env('CHATGPT_API_KEY') == "")
         {
             // echo env('CHATGPT_API_KEY');
@@ -28,14 +32,14 @@ class ChatGPTController extends Controller
         }
     }
 
-    public function createClient(){
-        // try{
-        //    $this->checkConfig();
-        // }
-        // catch(\Exception $e) {
-        //     $error = $e->getMessage();
-        //     return $error;
-        // }
+    /**
+     * Create GuzzleHttp Client to connect to openai
+     * 
+     * @return GuzzleHttp $client
+     */
+    public function createClient()
+    {
+
         $this->checkConfig();
         $client = new Client([
             'base_uri' => 'https://api.openai.com/v1/',
@@ -52,8 +56,11 @@ class ChatGPTController extends Controller
 
     /**
      *  Handle reference letter form submit
+     * 
+     *  @param Request $request
      */
-    public function generate(Request $request){
+    public function generate(Request $request)
+    {
         
         $request->validate([
             'inputName' => 'required',
