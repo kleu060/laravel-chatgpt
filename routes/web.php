@@ -13,13 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
 
+Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
-Route::get('/coverletter',[App\Http\Controllers\CoverLetterController::class, 'index'])->middleware('checkChatGPT')->name("CoverLetter");
-Route::post('/createPDF',[App\Http\Controllers\CoverLetterController::class, 'createPDF'])->middleware('checkChatGPT')->name("createPDF");
-Route::post('/generate', [App\Http\Controllers\ChatGPTController::class, 'generate'])->middleware('checkChatGPT')->name("generate");
+Route::view('profile', 'profile')
+    ->middleware(['auth'])
+    ->name('profile');
 
-Route::get('/chat', [App\Http\Controllers\ChatGPTController::class, 'askToChatGpt'])->name("chat");
+require __DIR__.'/auth.php';
