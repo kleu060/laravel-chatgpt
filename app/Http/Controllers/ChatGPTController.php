@@ -24,7 +24,8 @@ class ChatGPTController extends Controller
      * check if CHATGPT_API_KEY is dedfine in .env
      */
     public function checkConfig()
-    {
+    {   
+        // echo "abc: " . env('CHATGPT_API_KEY');
         if (!defined( env('CHATGPT_API_KEY') ) && env('CHATGPT_API_KEY') == "")
         {
             // echo env('CHATGPT_API_KEY');
@@ -48,7 +49,6 @@ class ChatGPTController extends Controller
                 'Content-Type' => 'application/json',
             ],
         ]);
-
         return $client;
         
 
@@ -73,7 +73,7 @@ class ChatGPTController extends Controller
         $message = "My name is ".$request->inputName. ". ".$request->inputRole." role in ".$request->inputCompany.".  I have the follow skill sets ".$skills. ". I need a cover letter to apply for the role.  insert my mame, address , email that was given. Recipient's Name will be  '". $request->inputCompany." Hiring team'.  No need to say Certainly. You DO NOT need to add address section and email in the cover letter, just provide me the body section of the cover letter.  No need to put today date. ";
 
         // set true is debugging the app.  Prevent using chatgpt request to save cost
-        $debug = false;
+        $debug = true;
         if ($debug == false){
             // echo $message;
             echo "<br /><br />";

@@ -1,21 +1,21 @@
-@extends('layouts.app')
-
-@section('title', $title)
-
-@section('content')
-<div class="container">
-    <div class="container my-5">
+<x-app-layout>
+<x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Cover letter') }}
+        </h2>
+    </x-slot>
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div>
-            <h1 class="d-inline-block">Cover Letter</h1>
-            <button class="btn d-inline-block" type="button" onclick="generatePDF()">Generate PDF</button>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounde" type="button" onclick="generatePDF()">Generate PDF</button>
         </div>
-        <textarea class="form-control" id="txtarea" style="height:500px;"></textarea>
+        <textarea class="w-full" id="txtarea" style="height:500px;"></textarea>
         <div style="display:none;" id="content">{!! $content !!}</div>
     </div> 
 </div>
-@endsection
 
-@section('after_script')
+
+
 <script>
 
     function generatePDF(){
@@ -74,7 +74,4 @@
 
     });
 </script>
-<style>
-    
-</style>
-@endsection
+</x-app-layout>

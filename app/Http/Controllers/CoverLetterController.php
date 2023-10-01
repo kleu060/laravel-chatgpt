@@ -15,6 +15,7 @@ class CoverLetterController extends Controller
      * 
      */
     public function index(){
+        
         $data["title"] = "Genearte Cover Letter";
         return view("coverletter", $data);
     }

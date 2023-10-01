@@ -18,6 +18,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/coverletter',[App\Http\Controllers\CoverLetterController::class, 'index'])->middleware(['auth', 'verified','checkChatGPT'])->name("CoverLetter");
+// Route::get('/coverletter', function () {
+//     return view('coverletter');
+// })->middleware(['auth', 'verified', 'checkChatGPT'])->name('CoverLetter');
+
+Route::post('/createPDF',[App\Http\Controllers\CoverLetterController::class, 'createPDF'])->middleware('checkChatGPT')->name("createPDF");
+Route::post('/generate', [App\Http\Controllers\ChatGPTController::class, 'generate'])->middleware('checkChatGPT')->name("generate");
+
+Route::get('/chat', [App\Http\Controllers\ChatGPTController::class, 'askToChatGpt'])->name("chat");
+
+
+
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -28,4 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+
 require __DIR__.'/auth.php';
+
+
