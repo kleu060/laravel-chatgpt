@@ -13,4 +13,5 @@ This application rely on barryvdh/laravel-dompdf to generate PDf file. Follow be
 2.  run ```php artisan migrate``` to create table to database
 3.  run ```php artisan storage:link``` to symbolic link to resources
 4.  run ```npm install``` to install the breeze package
-5.  run ```npm run build``` to run the app or run ```npm run dev``` to start development
+5.  run ```npm run build``` to run the app
+6.  run ```php artisan serve``` to start the server
