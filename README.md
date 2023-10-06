@@ -8,10 +8,12 @@ CHATGPT_API_KEY=YOUR_CHATGPT_API_KEY
 CHATGPT_API_KEY_DEBUG = false        #Debug mode, if false stop system calling chatgpt.  only generate dummy cover letter.  Set true otherwise
 ```
 
-This application rely on barryvdh/laravel-dompdf to generate PDf file. Follow below to install the module
-1.  run ```composer i``` to install dependencies  and libraries
-2.  run ```php artisan migrate``` to create table to database
-3.  run ```php artisan storage:link``` to symbolic link to resources
-4.  run ```npm install``` to install the breeze package
-5.  run ```npm run build``` to run the app
-6.  run ```php artisan serve``` to start the server
+
+Follow below to install setup the application
+1.  Downlaod the file from github
+2.  run ```composer i``` to install dependencies  and libraries
+3.  run ```php artisan migrate``` to create table to database
+4.  run ```php artisan storage:link``` to symbolic link to resources
+5.  run ```npm install``` to install the breeze package
+6.  run ```npm run build``` to run the app
+7.  run ```php artisan serve``` to start the server
