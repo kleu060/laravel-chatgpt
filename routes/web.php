@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect(route("login"));
 });
 
 Route::get('/coverletter',[App\Http\Controllers\CoverLetterController::class, 'index'])->middleware(['auth', 'verified','checkChatGPT'])->name("CoverLetter");
@@ -27,7 +28,9 @@ Route::post('/createPDF',[App\Http\Controllers\CoverLetterController::class, 'cr
 Route::post('/generate', [App\Http\Controllers\ChatGPTController::class, 'generate'])->middleware('checkChatGPT')->name("generate");
 
 Route::get('/chat', [App\Http\Controllers\ChatGPTController::class, 'askToChatGpt'])->name("chat");
-
+Route::get('/list-letter', [App\Http\Controllers\LetterController::class, 'listLetter'])->name("ListLetter");
+Route::post('/save-letter', [App\Http\Controllers\LetterController::class, 'saveLetter'])->name("SaveLetter");
+Route::get('/view-letter/{id}', [App\Http\Controllers\LetterController::class, 'viewLetter'])->name("ViewLetter");
 
 
 

@@ -8,6 +8,8 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div>
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounde" type="button" onclick="generatePDF()">Generate PDF</button>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounde" type="button" onclick="saveLetter()">Save Letter</button>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounde" type="button" onclick="history.back()">Back</button>
         </div>
         <textarea class="w-full" id="txtarea" style="height:500px;"></textarea>
         <div style="display:none;" id="content">{!! $content !!}</div>
@@ -17,6 +19,21 @@
 
 
 <script>
+
+    function saveLetter(){
+        var txt = $("#content").html();
+        $.ajax({
+            type: 'post',
+            url: "{{route('SaveLetter')}}",
+            data: {
+                content:txt,
+                _token : "{{csrf_token() }}",
+            },
+            success: function(response){
+                alert(response);
+            }
+        })
+    }
 
     function generatePDF(){
         var txt = $("#content").html();
@@ -47,6 +64,7 @@
         $(document).ready(function()
         {
             var tmp = "{!! $content !!}";
+            console.log(tmp);
             var name = tmp.replace(/<br \/>/g, '\n');
 
             

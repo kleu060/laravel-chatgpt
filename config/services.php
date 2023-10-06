@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'chatgpt' => [
+        'key' => env('CHATGPT_API_KEY'),
+        'debug_mode' => env('CHATGPT_API_KEY_DEBUG')
+    ]
+
 ];

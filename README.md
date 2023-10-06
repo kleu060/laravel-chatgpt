@@ -23,3 +23,7 @@ This application rely on barryvdh/laravel-dompdf to generate PDf file. Follow be
 ```
 php artisan vendor:publish
 ```
+
+
+
+run ```php artisan storage:link``` to symbolic link to resources
