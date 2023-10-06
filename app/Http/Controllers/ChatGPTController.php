@@ -44,7 +44,7 @@ class ChatGPTController extends Controller
         $client = new Client([
             'base_uri' => 'https://api.openai.com/v1/',
             'headers' => [
-                'Authorization' => 'Bearer ' . env('CHATGPT_API_KEY'),
+                'Authorization' => 'Bearer ' . config('services.chatgpt.key'),
                 'Content-Type' => 'application/json',
             ],
         ]);
@@ -123,7 +123,10 @@ class ChatGPTController extends Controller
     public function askToChatGpt()
     {
         $message = "what is laravel";
-        $response = $this->httpClient->post('chat/completions', [
+
+
+        $client = $this->createClient();
+        $response = $client->post('chat/completions', [
             'json' => [
                 'model' => 'gpt-3.5-turbo',
                 'messages' => [
@@ -132,5 +135,7 @@ class ChatGPTController extends Controller
                 ],
             ],
         ]);
+
+        print_r($response);
     }
 }
