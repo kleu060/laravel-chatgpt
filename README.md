@@ -4,7 +4,7 @@ This is a Laravel application that connect to Chatgpt and generate cover letter 
 ## Add Chatgpt key
 Go to .env and add the ChatGPT key and debug mode
 ```
-CHATGPT_API_KEY=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
+CHATGPT_API_KEY=YOUR_CHATGPT_API_KEY
 CHATGPT_API_KEY_DEBUG = false        #Debug mode, if false stop system calling chatgpt.  only generate dummy cover letter.  Set true otherwise
 ```
 
