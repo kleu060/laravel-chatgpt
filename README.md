@@ -5,7 +5,7 @@ This is a Laravel application that connect to Chatgpt and generate cover letter 
 Go to .env and add the ChatGPT key and debug mode
 ```
 CHATGPT_API_KEY=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
-CHATGPT_API_KEY_DEBUG = false        #Debug mode, stop system calling chatgpt.  only generate dummy cover letter
+CHATGPT_API_KEY_DEBUG = false        #Debug mode, if false stop system calling chatgpt.  only generate dummy cover letter.  Set true otherwise
 ```
 
 This application rely on barryvdh/laravel-dompdf to generate PDf file. Follow below to install the module
