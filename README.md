@@ -2,28 +2,15 @@
 This is a Laravel application that connect to Chatgpt and generate cover letter for people who is looking for new job.
 
 ## Add Chatgpt key
-Go to .env and add the ChatGPT key
+Go to .env and add the ChatGPT key and debug mode
 ```
-CHATGPT_API_KEY=[your_chatgpt_api_key]
+CHATGPT_API_KEY=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
+CHATGPT_API_KEY_DEBUG = false        #Debug mode, stop system calling chatgpt.  only generate dummy cover letter
 ```
 
-## Install barryvdh/laravel-dompdf
 This application rely on barryvdh/laravel-dompdf to generate PDf file. Follow below to install the module
-1.  ```composer create-project laravel/laravel laravel-pdf --prefer-dist```
-2.  Open config/app.php file and incorporate DomPDF service provider in providers array along with DomPDF facade to the aliases array.
-```
-'providers' => [
-  Barryvdh\DomPDF\ServiceProvider::class,
-],
-'aliases' => [
-  'PDF' => Barryvdh\DomPDF\Facade::class,
-]
-```
-3.  Execute the following command to publish the assets from vendor.
-```
-php artisan vendor:publish
-```
-
-
-
-run ```php artisan storage:link``` to symbolic link to resources
+1.  run ```composer i``` to install dependencies  and libraries
+2.  run ```php artisan migrate``` to create table to database
+3.  run ```php artisan storage:link``` to symbolic link to resources
+4.  run ```npm install``` to install the breeze package
+5.  run ```npm run build``` to run the app or run ```npm run dev``` to start development
